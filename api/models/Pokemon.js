@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const PokemonSchema = new mongoose.Schema({
   api_id: {
     type: String,
-    required: false,
   },
   name: {
     type: String,

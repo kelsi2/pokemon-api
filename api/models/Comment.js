@@ -22,7 +22,7 @@ const CommentSchema = new mongoose.Schema(
       required: true,
       default: "",
     },
-    pokemon_id: {
+    pokemonId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pokemon",
     },

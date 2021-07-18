@@ -9,7 +9,7 @@ import Routes from "./routes";
 
 // Setup Apollo Client
 
-const uri = "http://localhost:5000/api";
+const uri = import.meta.env.VITE_API_URI;
 const cache = new InMemoryCache();
 const link = createHttpLink({ uri });
 

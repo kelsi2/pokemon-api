@@ -45,15 +45,25 @@ module.exports = {
 
     // 3.5 Cache the result in our local mongodb
     // Create does not require .exec
-    result.api_id = id;
+    result.api_id = result.id;
     await models.Pokemon.create(result);
 
     // 4. Send JSON response to the client
     return result;
   },
+
   pokemonCount: async (parent, args, { models }) => {
     // Return count of pokemon in db
     return await models.Pokemon.count().exec();
+  },
+
+  // Comments
+  pokemonComments: async (parent, { pokemonId }, { models }) => {
+    return await models.Comment.find({ pokemon_id: pokemonId })
+      .sort({
+        createdAt: -1,
+      })
+      .exec();
   },
 };
 

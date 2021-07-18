@@ -5,8 +5,12 @@ const { gql } = require("apollo-server-express");
 module.exports = gql`
   # QUERIES
   type Query {
+    # Pokemon
     pokemon(name: String, id: ID): Pokemon!
     pokemonCount: Int!
+
+    # Comments
+    pokemonComments(pokemonId: ID!): [Comment]!
   }
 
   # MUTATIONS
@@ -33,7 +37,7 @@ module.exports = gql`
   # TYPES
   type Pokemon {
     id: ID!
-    api_id: ID!
+    api_id: ID
     name: String!
     base_experience: Int!
     height: Int!
@@ -51,7 +55,7 @@ module.exports = gql`
     upvotes: Int
     downvotes: Int
     text: String!
-    pokemon_id: ID!
+    pokemonId: ID!
     createdAt: String!
     updatedAt: String!
   }

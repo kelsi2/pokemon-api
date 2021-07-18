@@ -1,11 +1,13 @@
 import React from "react";
 import PokemonCardFromId from "../components/PokemonCardFromId";
+import PokemonSearchBar from "../components/PokemonSearchBar";
 
 const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <PokemonCardFromId id={8} />
+      <PokemonSearchBar />
+      <PokemonCardFromId id={1} />
     </div>
   );
 };
